@@ -1,0 +1,43 @@
+<div class="row expanded align-center">
+	<h1>Register an account</h1>
+</div>
+<div class="row align-center"> 
+	<form>
+		<div class="small-12 columns">
+			<label> Username:
+			<input type="text" placeholder="Enter Email Address" id="email"
+				[(ngModel)]="email" name="email" required #em="ngModel">
+			<div [hidden]="em.valid || em.pristine" class="alert callout">
+				Email is required
+			</div>
+    </div>
+    
+    <div class="small-12 columns">
+			<label> Password1:
+			<input type="password" placeholder="Enter pass" id="password1"
+				[(ngModel)]="password1" name="password1" required #pass1="ngModel">
+			<div [hidden]="pass1.valid || pass1.pristine" class="alert callout">
+				Password required
+			</div>
+    </div>
+    
+    <div class="small-12 columns">
+			<label> password2:
+			<input type="password" placeholder="Enter pass" id="password2"
+				[(ngModel)]="password2" name="password2" required #pass2="ngModel">
+			<div [hidden]="pass2.valid || pass2.pristine" class="alert callout">
+				Password required
+			</div>
+    </div>
+    
+    <div class="alert callout" *ngIf="passwordFail">
+      Passwords Do not match
+    </div>
+    <div class="small-12 columns">
+      <div class="expanded button-group">
+        <a class="success button" (click)="signUp()"> Sign Up</a>
+        <a class="cancel button" (click)="cancel()">Cancel</a>
+      </div>
+    </div>
+	</form>
+</div>
